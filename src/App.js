@@ -12,6 +12,7 @@ import Root from "./pages/root.component.js";
 import { ToastContainer } from 'react-toastify';
 
 export default function () {
+  
   return (
     <Provider store={store}>
       <div className="App">
