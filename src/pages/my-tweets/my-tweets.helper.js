@@ -7,7 +7,8 @@ export const likeTweet = async (data) => {
         let headers = {
             "Authorization": credentials
         }
-        let apiUrl = BASE_URI + BASE_TWEET_URL + "/like" ;
+        //let apiUrl = BASE_URI + BASE_TWEET_URL + "/like" ;
+        let apiUrl = BASE_TWEET_URL + "/like"
         await HttpPost(apiUrl, data, headers)
     } catch (e) {
         throw e;
@@ -18,7 +19,8 @@ export const likeTweet = async (data) => {
 export const fetchMyTweets = async (loginId) => {
     try {
         let credentials = "Bearer " + localStorage.getItem("token");
-        let apiUrl = BASE_URI + BASE_TWEET_URL + "/" + loginId;
+        //let apiUrl = BASE_URI + BASE_TWEET_URL + "/" + loginId;
+        let apiUrl = BASE_TWEET_URL + "/" + loginId;
         let headers = {
             "Authorization": credentials
         }
@@ -32,12 +34,13 @@ export const fetchMyTweets = async (loginId) => {
 export const deleteTweet = async (loginId, tweetId) => {
     try {
         let credentials = "Bearer " + localStorage.getItem("token");
-        let apiUrl = BASE_URI + BASE_TWEET_URL + "/" + loginId + "/delete/" + tweetId;
+        //let apiUrl = BASE_URI + BASE_TWEET_URL + "/" + loginId + "/delete/" + tweetId;
+        let apiUrl = BASE_TWEET_URL + "/" + loginId + "/delete/" + tweetId;
         let headers = {
             "Authorization": credentials
         }
-       await HttpDelete(apiUrl, {}, headers)
-        
+        await HttpDelete(apiUrl, {}, headers)
+
     } catch (e) {
         throw e;
     }
@@ -50,8 +53,8 @@ export const updateTweet = async (data) => {
         let headers = {
             "Authorization": credentials
         }
-       await HttpPost(apiUrl, data, headers)
-        
+        await HttpPost(apiUrl, data, headers)
+
     } catch (e) {
         throw e;
     }
