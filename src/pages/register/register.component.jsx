@@ -14,6 +14,7 @@ import TextField from '@material-ui/core/TextField';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { register } from './register.helper';
+import { signup } from './register.helper';
 
 export default function Register(props) {
     const [values, setValues] = React.useState({
@@ -81,6 +82,7 @@ export default function Register(props) {
             try {
                 props.showLoader("Creating User");
                 await register(values);
+                await signup(values);
                 toast.success("User Registration Sucessfull")
                 props.updateSelectedPage(pages.LOGIN)
                 props.hideLoader();

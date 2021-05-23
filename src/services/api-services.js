@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  timeout: 10000,
+  timeout: 1000000000,
 });
 
 export const HttpGet = async (endPoint, queryParams = {}, headers = {}) => {

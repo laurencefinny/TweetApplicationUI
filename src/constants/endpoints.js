@@ -1,8 +1,8 @@
-export const BASE_URI ='http://ec2-13-235-90-21.ap-south-1.compute.amazonaws.com:8081';
+export const BASE_URI = 'https://4ylysw2tl1.execute-api.ap-south-1.amazonaws.com/Prod';
 export const BASE_TWEET_URL = '/api/v1.0/tweets'
 export const FORGOT_PASSWD = '/forgetPassword'
-export const AUTHENTICATE = '/authenticate'; 
-export const REGISTER = '/register'; 
-export const ALL_TWEETS = '/all'; 
-export const ALL_USERS = '/users/all'; 
+export const AUTHENTICATE = '/authenticate';
+export const REGISTER = '/register';
+export const ALL_TWEETS = '/all';
+export const ALL_USERS = '/users/all';
 export const GET_USER = "/api/v1.0/user/search/"

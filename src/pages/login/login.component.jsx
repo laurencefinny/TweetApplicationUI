@@ -40,12 +40,14 @@ export default function Login(props) {
         try {
             props.showLoader("Logging in")
             let token = await authenticate(values.emailId, values.password);
+            console.log(token.idToken.jwtToken)
             await localStorage.setItem("isAuthenticated", true);
-            await localStorage.setItem("token", token);
+            await localStorage.setItem("token", token.idToken.jwtToken);
             await localStorage.setItem("loginId", values.emailId);
             props.updateSelectedPage(pages.HOME)
             props.hideLoader();
         } catch (e) {
+            console.log(e)
             setErrorMessage("Incorrect Credentials")
             props.hideLoader();
         }

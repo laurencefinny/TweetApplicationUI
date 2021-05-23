@@ -5,11 +5,16 @@ import imgProfileEmpty from '../../assets/images/profile.jpeg';
 import { pages } from '../../constants/strings';
 import 'bootstrap/dist/js/bootstrap.bundle'
 import { fetchLoggedInUserDetails } from './custom-nav-bar.helper';
-
+import Pool from "../../UserPool";
 export default function CustomNavBar(props) {
 
   const onLogout = () => {
     localStorage.clear();
+    const user = Pool.getCurrentUser();
+    console.log(user)
+    if (user) {
+      user.signOut();
+    }
     window.location.reload();
   };
   React.useEffect(() => {
