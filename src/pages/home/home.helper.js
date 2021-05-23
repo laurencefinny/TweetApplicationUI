@@ -1,23 +1,6 @@
 import { HttpGet, HttpPost } from "../../services/api-services";
 import { BASE_URI, BASE_TWEET_URL, ALL_TWEETS, GET_USER } from "../../constants/endpoints";
 
-
-const createResponse = (statusCode, body) => {
-
-    // to restrict the origin for CORS purposes, replace the wildcard
-    // origin with a specific domain name
-    return {
-        statusCode: statusCode,
-        body: body,
-        headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        }
-    }
-};
-
-
-
 export const fetchLoggedInUserDetails = async () => {
     try {
         let credentials = "Bearer " + localStorage.getItem("token");
@@ -45,8 +28,6 @@ export const fetchAllTweets = async () => {
             'Content-Type': 'application/json',
         }
         let response = await HttpGet(apiUrl, {}, headers)
-        let data = await HttpGet(apiUrl, {}, headers).promise();
-        return createResponse(200, JSON.stringify(data.data.tweetsDto) + '\n');
         return response.data.tweetsDto;
     } catch (e) {
         throw e;
