@@ -4,7 +4,8 @@ import UserPool from "../../UserPool";
 
 export const register = async (values) => {
     try {
-        let apiUrl = BASE_URI + REGISTER;
+        //let apiUrl = BASE_URI + REGISTER;
+        let apiUrl = REGISTER;
         await HttpPost(apiUrl, {
             userDto: {
                 loginId: values.loginId,
@@ -21,8 +22,8 @@ export const register = async (values) => {
 }
 
 export const signup = async (values) => {
-    console.log("in signup" + values.emailId);
-    UserPool.signUp(values.loginId, values.password, values.emailId, [], null, (err, data) => {
+    console.log("in signup" + values.loginId);
+    UserPool.signUp(values.loginId, values.password, [], null, (err, data) => {
         if (err) {
             console.error(err);
         }
