@@ -7,24 +7,11 @@ export const fetchLoggedInUserDetails = async () => {
         let apiUrl = BASE_URI + GET_USER + localStorage.getItem("loginId");
         console.log(apiUrl)
         let headers = {
-            "Authorization": credentials
+            "Authorization": credentials,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
         }
         let response = await HttpGet(apiUrl, {}, headers)
-        // let response = {
-        //     data: {
-        //         "usersDto": [
-        //             {
-        //                 "loginId": "sainag98",
-        //                 "firstName": "Sainag",
-        //                 "lastName": "Chunduru",
-        //                 "emailId": "sainagchunduru23@gmail.com",
-        //                 "password": "Dsf",
-        //                 "contactNumber": 9098765432,
-        //                 "loggedIn": null
-        //             }
-        //         ]
-        //     }
-        // }
         return response.data.usersDto[0];
     } catch (e) {
         throw e;
@@ -36,7 +23,9 @@ export const fetchAllTweets = async () => {
         let credentials = "Bearer " + localStorage.getItem("token");
         let apiUrl = BASE_URI + BASE_TWEET_URL + ALL_TWEETS;
         let headers = {
-            "Authorization": credentials
+            "Authorization": credentials,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
         }
         let response = await HttpGet(apiUrl, {}, headers)
         // let response = {
@@ -154,9 +143,12 @@ export const postTweet = async (loginId, tweetMessage) => {
     try {
         let credentials = "Bearer " + localStorage.getItem("token");
         let headers = {
-            "Authorization": credentials
+            "Authorization": credentials,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+
         }
-        let apiUrl = BASE_URI + BASE_TWEET_URL + "/" + loginId + "/add" ;
+        let apiUrl = BASE_URI + BASE_TWEET_URL + "/" + loginId + "/add";
         await HttpPost(apiUrl, {
             tweet: {
                 tweet: tweetMessage,
@@ -173,7 +165,7 @@ export const postReplyTweet = async (data) => {
             "Authorization": credentials
         }
 
-        let apiUrl = BASE_URI + BASE_TWEET_URL + "/reply" ;
+        let apiUrl = BASE_URI + BASE_TWEET_URL + "/reply";
         await HttpPost(apiUrl, data, headers)
     } catch (e) {
         throw e;
@@ -184,9 +176,11 @@ export const likeTweet = async (data) => {
     try {
         let credentials = "Bearer " + localStorage.getItem("token");
         let headers = {
-            "Authorization": credentials
+            "Authorization": credentials,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
         }
-        let apiUrl = BASE_URI + BASE_TWEET_URL + "/like" ;
+        let apiUrl = BASE_URI + BASE_TWEET_URL + "/like";
         await HttpPost(apiUrl, data, headers)
     } catch (e) {
         throw e;
