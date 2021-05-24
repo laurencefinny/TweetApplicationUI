@@ -4,8 +4,8 @@ import UserPool from "../../UserPool";
 
 export const register = async (values) => {
     try {
-        //let apiUrl = BASE_URI + REGISTER;
-        let apiUrl = REGISTER;
+        let apiUrl = BASE_URI + REGISTER;
+        //let apiUrl = REGISTER;
         await HttpPost(apiUrl, {
             userDto: {
                 loginId: values.loginId,
