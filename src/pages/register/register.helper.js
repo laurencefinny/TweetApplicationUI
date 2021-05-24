@@ -1,6 +1,7 @@
 import { HttpPost } from "../../services/api-services";
 import { BASE_URI, REGISTER } from "../../constants/endpoints";
 import UserPool from "../../UserPool";
+import { CognitoUserAttribute } from "amazon-cognito-identity-js";
 
 export const register = async (values) => {
     try {
@@ -23,11 +24,17 @@ export const register = async (values) => {
 
 export const signup = async (values) => {
     console.log("in signup" + values.loginId);
-    UserPool.signUp(values.loginId, values.password, [], null, (err, data) => {
+    // Const attributes: {
+    //     email: values.emailId
+    // }
+    let attributeList = [
+        new CognitoUserAttribute({ Name: 'email', Value: values.emailId })
+    ];
+    UserPool.signUp(values.loginId, values.password, attributeList, null, (err, data) => {
         if (err) {
             console.error(err);
         }
-        console.log(data);
+        console.log("after sign up " + data);
     });
 }
 

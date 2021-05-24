@@ -33,6 +33,7 @@ export default function Register(props) {
         loginId: '',
         confirmPassword: "",
         contactNumber: "",
+        password: ''
     });
     const handleChange = (prop) => (event) => {
         setErrorValues({
@@ -40,6 +41,7 @@ export default function Register(props) {
             loginId: '',
             confirmPassword: "",
             contactNumber: "",
+            password: ''
         })
         setValues({ ...values, [prop]: event.target.value });
     };
@@ -49,6 +51,7 @@ export default function Register(props) {
         let confirmPassword = "";
         let emailId = "";
         let phoneNumber = "";
+        let password = "";
         if (values.confirmPassword !== values.password) {
             confirmPassword = "Confirm Password does not match with Password"
             allValid = false;
@@ -61,8 +64,13 @@ export default function Register(props) {
             phoneNumber = "Contact Number should be of length 10"
             allValid = false;
         }
+        if (values.password.length != 8) {
+            console.log(values.password)
+            password = "Password should be of minimum length 8"
+            allValid = false;
+        }
         if (!allValid) {
-            setErrorValues({ ...errorValues, confirmPassword: confirmPassword, emailId: emailId, contactNumber: phoneNumber })
+            setErrorValues({ ...errorValues, confirmPassword: confirmPassword, emailId: emailId, contactNumber: phoneNumber, password: password })
         }
         return allValid;
     }
@@ -81,9 +89,9 @@ export default function Register(props) {
         if (validateInputs()) {
             try {
                 props.showLoader("Creating User");
-                await register(values);
                 await signup(values);
-                toast.success("User Registration Sucessfull")
+                await register(values);
+                toast.success("Please Verify your Email and Login")
                 props.updateSelectedPage(pages.LOGIN)
                 props.hideLoader();
             } catch (e) {
@@ -151,6 +159,9 @@ export default function Register(props) {
                                             </InputAdornment>
                                         </>
                                 }}
+                                color={errorValues.password == "" ? "primary" : "secondary"}
+                                error={errorValues.password != ""}
+                                helperText={errorValues.password}
                             />
                         </FormControl>
                         <FormControl variant="outlined" style={{ paddingLeft: 10, width: 250, marginRight: 20 }}>
