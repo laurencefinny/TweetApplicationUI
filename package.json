@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "https://4ylysw2tl1.execute-api.ap-south-1.amazonaws.com/Prod",
-  "homepage": "https://main.d34c5h44yzfctn.amplifyapp.com/",
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
@@ -47,8 +46,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "http-proxy-middleware": "^2.0.0"
   }
 }
