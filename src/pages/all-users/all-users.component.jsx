@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import "./all-users.styles.css";
-import imgProfileEmpty from '../../assets/images/profile.jpeg';
-import imgProfile1 from '../../assets/images/profile-1.jpeg';
-import imgProfile2 from '../../assets/images/profile-2.jpeg';
-import imgProfile3 from '../../assets/images/profile-3.jpeg';
+import imgProfileEmpty from '../../assets/images/profile.png';
+import imgProfile1 from '../../assets/images/profile-1.png';
+import imgProfile2 from '../../assets/images/profile-2.png';
+import imgProfile3 from '../../assets/images/profile-3.png';
 import imgProfile4 from '../../assets/images/profile-4.png';
-import imgProfile5 from '../../assets/images/profile-5.jpeg';
+import imgProfile5 from '../../assets/images/profile-5.png';
 import imgEmail from '../../assets/images/email.png';
 import imgPhone from '../../assets/images/phone.png';
 import { fetchAllUsers } from './all-users.helper';

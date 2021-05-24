@@ -1,7 +1,7 @@
 import React from 'react';
 import './custom-nav-bar.styles.css';
 import imgTweetLogo from '../../assets/images/logo-white.png';
-import imgProfileEmpty from '../../assets/images/profile.jpeg';
+import imgProfileEmpty from '../../assets/images/profile.png';
 import { pages } from '../../constants/strings';
 import 'bootstrap/dist/js/bootstrap.bundle'
 import { fetchLoggedInUserDetails } from './custom-nav-bar.helper';

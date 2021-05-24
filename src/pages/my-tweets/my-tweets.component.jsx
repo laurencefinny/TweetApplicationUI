@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
 import "./my-tweets.styles.css";
-import imgProfileEmpty from '../../assets/images/profile.jpeg';
-import imgProfile1 from '../../assets/images/profile-1.jpeg';
-import imgProfile2 from '../../assets/images/profile-2.jpeg';
-import imgProfile3 from '../../assets/images/profile-3.jpeg';
+import imgProfileEmpty from '../../assets/images/profile.png';
+import imgProfile1 from '../../assets/images/profile-1.png';
+import imgProfile2 from '../../assets/images/profile-2.png';
+import imgProfile3 from '../../assets/images/profile-3.png';
 import imgProfile4 from '../../assets/images/profile-4.png';
-import imgProfile5 from '../../assets/images/profile-5.jpeg';
+import imgProfile5 from '../../assets/images/profile-5.png';
 import imgLikeWhite from '../../assets/images/like-white.png';
 import imgLikeBlue from '../../assets/images/like-blue.png';
 import imgReply from '../../assets/images/reply.png';
@@ -175,7 +175,7 @@ export default function MyTweets(props) {
                             </div>
                             {
                                 tweet.isEditing ?
-                                    <div style={{ width: "100%", display: "inline-flex", alignItems: "center", justifyContent:"center" }}>
+                                    <div style={{ width: "100%", display: "inline-flex", alignItems: "center", justifyContent: "center" }}>
                                         <textarea placeholder={"Edit Tweet"} value={tweet.tweet} multiple={4} style={{ width: "80%", borderWidth: 0, resize: "none", padding: 10, marginRight: 20 }} maxLength={144} onChange={onEditChange} />
                                         <button style={{ borderWidth: 0, backgroundColor: "#1DA1F2", color: "white", width: 100, padding: 5, borderRadius: 20, marginRight: 30 }} onClick={onUpdateTweet}>Save</button>
                                     </div> :
@@ -241,7 +241,7 @@ export default function MyTweets(props) {
                                     <p style={{ marginLeft: 20, marginTop: 20, fontSize: 12, fontFamily: "OpenSans-Regular" }}>You are replying to <span style={{ color: "#1DA1F2" }}>{tweet.userTweetId}</span> </p>
                                     <div style={{ alignItems: "flex-start", display: "inline-flex", width: "100%", borderRadius: 10, borderWidth: 1, marginLeft: 30 }}>
                                         <img src={imgProfileEmpty} className="rounded-circle" height={30} width={30} style={{ marginRight: 20 }} />
-                                        <textarea placeholder={"Tweet your reply"} multiple={4} style={{ width: "80%", height: 50, borderWidth: 0, resize: "none", padding: 10, fontSize: 16 }} maxLength={144} onChange={onChangeText}/>
+                                        <textarea placeholder={"Tweet your reply"} multiple={4} style={{ width: "80%", height: 50, borderWidth: 0, resize: "none", padding: 10, fontSize: 16 }} maxLength={144} onChange={onChangeText} />
                                     </div>
                                     <div style={{ display: "inline-flex", alignItems: "flex-end", justifyContent: "flex-end", width: "100%" }}>
                                         <button style={{ borderWidth: 0, marginTop: 10, backgroundColor: "#1DA1F2", color: "white", width: 100, padding: 10, borderRadius: 20, marginBottom: 20, marginRight: 30 }} onClick={onReplyTweet}>Tweet</button>
